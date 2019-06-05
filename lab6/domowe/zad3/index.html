@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Form
+    </title>
+    <script>
+        /*****************************************************************/
+        /* Function that performs (asynchronous) query to the web server */
+        /*****************************************************************/
+        function clock() {
+            // Create an object representing the request to the web server - see https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
+            var xhr = new XMLHttpRequest();
+
+            // Registration of a (user) function that will process the response received from the server
+            xhr.onreadystatechange = () => response(xhr);
+
+            // Execution of the (asynchronous) query to the web server
+            xhr.open('GET', "/time", true);
+            xhr.send(null);
+            var timeout_id = setTimeout(clock, 1000);
+            // Examples of the use of the above methods - see https://www.w3schools.com/xml/ajax_xmlhttprequest_send.asp
+        }
+
+        function response(xhr) {
+            try {
+                if (xhr.readyState == XMLHttpRequest.DONE) { // If the response is ready
+                    if (xhr.status == 200) {                    // If requst was correct
+
+                        // If the data you receive is a plain text or a JSON document, use the following code
+                        var received_data = xhr.responseText; // Get a response in the form of a string
+                        var times = received_data.split(" ^^ ");
+                        document.getElementById("id1").textContent = times[0];
+                        document.getElementById("id2").textContent = times[1];
+                        // window.alert(received_data);          // and display it
+
+                        // If the data you receive is an HTML or XML document, use the following code
+                        //var xmlDoc = xhr.responseXML; //Receive the answer in the form of object 'XmlDocument', which can be accessed using DOM methods - see https://www.w3.org/TR/domcore/
+                    } else
+                        window.alert('There was a problem with this request.');
+                }
+            } catch (e) {
+                window.alert('Exception caught: ' + e.description);
+            }
+        }
+    </script>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        table, td, th {
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 15px;
+        }
+
+        .myBtn {
+            opacity: 0.7;
+            font-family: Georgia, serif;
+            font-size: xx-large;
+            border-radius: 1000px;
+            width: 50%;
+            height: 120px;
+            margin: 100px 10px;
+            padding: 3px 6px 3px;
+            background-color: khaki;
+            color: buttontext;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .myBtn:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <table>
+        <tr>
+            <th>LOKALNY CZAS</th>
+            <th id="id1"></th>
+        </tr>
+        <tr>
+            <th>CZAS W NOWYM JORKU</th>
+            <th id="id2"></th>
+        </tr>
+    </table>
+    <!--    <h1 id = "id1">LOCALE</h1>-->
+    <!--    <br>-->
+    <!--    <h1 id = "id2">USA</h1>-->
+    <form method="get" action="/time">
+        <input class = "myBtn" type="button" value="CLOCK" onclick="clock()">
+    </form>
+
+</main>
+</body>
+</html>

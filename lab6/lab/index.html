@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Form
+    </title>
+
+</head>
+<style>
+    #canvas {
+        border: 5px solid red;
+    }
+</style>
+<body>
+<main>
+    <canvas id="canvas" width="500" height="500">
+        Twoja przeglądarka nie obsługuje elementu Canvas.
+    </canvas>
+    <form method="get" action="/generate">
+        <label for = "amount">Amount</label>
+        <input type = "text" name = "amount" id ="amount">
+        <br>
+        <label for = "start">Start point: x y</label>
+        <input type = "text" name = "start" id ="start">
+        <input type="button" value="Using AJAX GET" onclick="startCanvas()">
+    </form>
+
+    <script>
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+        var color = getRandomColor();
+        console.log(color);
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+        /*****************************************************************/
+        /* Function that performs (asynchronous) query to the web server */
+        /*****************************************************************/
+        function startCanvas() {
+            var amount = document.getElementById("amount").value;
+            var startPoint = document.getElementById("start").value;
+            var arr = startPoint.split("^^");
+            ctx.moveTo(arr[0], arr[1]);
+            // ctx.lineTo(200, 100);
+            // ctx.stroke();
+            for(var i  = 0; i < parseInt(amount); i++){
+                requestAJAX();
+            }
+
+        }
+
+        function requestAJAX() {
+            // Create an object representing the request to the web server - see https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
+            var xhr = new XMLHttpRequest();
+            // Registration of a (user) function that will process the response received from the server
+            xhr.onreadystatechange = () => response(xhr);
+
+            // Execution of the (asynchronous) query to the web server
+            xhr.open('GET', "/generate", true);
+            xhr.send(null);
+            // Examples of the use of the above methods - see https://www.w3schools.com/xml/ajax_xmlhttprequest_send.asp
+        }
+
+
+        /************************************************************/
+        /* The function that processes the response from the server */
+        /************************************************************/
+        function response(xhr) {
+            try {
+                if (xhr.readyState == XMLHttpRequest.DONE) { // If the response is ready
+                    if (xhr.status == 200) {                    // If requst was correct
+
+                        // If the data you receive is a plain text or a JSON document, use the following code
+                        var received_data = xhr.responseText; // Get a response in the form of a string
+                        var arr = received_data.split("^^");
+                        var x = parseInt(arr[0]);
+                        var y = parseInt(arr[1]);
+                        ctx.lineTo(x, y);
+                        ctx.strokeStyle = color;
+                        ctx.stroke();
+                        // window.alert(received_data);          // and display it
+
+                        // If the data you receive is an HTML or XML document, use the following code
+                        //var xmlDoc = xhr.responseXML; //Receive the answer in the form of object 'XmlDocument', which can be accessed using DOM methods - see https://www.w3.org/TR/domcore/
+                    } else
+                        window.alert('There was a problem with this request.');
+                }
+            } catch (e) {
+                window.alert('Exception caught: ' + e.description);
+            }
+        }
+    </script>
+</main>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "geek",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "latest",
+    "mongoose": "^5.5.9"
+  }
+}

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible"
+          content="ie=edge">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="sheet.css">
+    <!-- Page title -->
+
+    <title>
+        Thinking in Java
+    </title>
+
+</head>
+<body>
+<style>
+    /*table{
+        margin: auto;
+        max-width: 700px;
+    }*/
+    /*table thead th {*/
+        /*width: 50%;*/
+    /*}*/
+</style>
+
+<!--Tutaj menu nawigacyjne / Here the navigation menu-->
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+    <a class="navbar-brand" href="home.html">Thinking in Java</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="home.html">Java</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="description.html">About book</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" a
+                   ria-haspopup="true" aria-expanded="false">
+                    Book
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="introduction_to_object.html">Introduction to Objects</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="progress_of_abstraction.html">The progress of abstraction</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="object_has_interface.html">An object has an interface</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="object_provides_services.html">An object provides services</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="hidden_implementation.html">The hidden implementation</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="reusing%20_implementation.html">Reusing the implementation</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="inheritance.html">Inheritance</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<main style="margin: 30px">
+    <!--Tutaj treść strony / Here the content of the page -->
+    <div style="text-align: center;">
+        <img class="img-fluid" src="http://cdn.benchmark.pl/uploads/backend_img/a/oracle-sun-java-logo.jpg">
+    </div>
+
+    <h2>What is Java?</h2>
+
+    <p>Java is a general-purpose computer-programming language that is concurrent, class-based,
+        object-oriented, and specifically designed to have as few implementation dependencies as possible. It is
+        intended to let application developers "write once, run anywhere" (WORA), meaning that compiled Java
+        code can run on all platforms that support Java without the need for recompilation. Java applications
+        are typically compiled to bytecode that can run on any Java virtual machine (JVM) regardless of computer
+        architecture. As of 2016, Java is one of the most popular programming languages in use,
+        particularly for client-server web applications, with a reported 9 million developers. Java was
+        originally developed by James Gosling, a Canadian, at Sun Microsystems (which has since been acquired by
+        Oracle Corporation) and released in 1995 as a core component of Sun Microsystems' Java platform. The
+        language derives much of its original features from SmallTalk, with a syntax similar to C and C++, but it
+        has fewer low-level facilities than either of them.</p>
+
+    <p>The original and reference implementation Java compilers, virtual machines, and class libraries were
+        originally released by Sun under proprietary licenses. As of May 2007, in compliance with the specifications
+        of the Java Community Process, Sun relicensed most of its Java technologies under the GNU General Public
+        License. Others have also developed alternative implementations of these Sun technologies, such as the GNU
+        Compiler for Java (bytecode compiler), GNU Classpath (standard libraries), and IcedTea-Web (browser plugin
+        for applets).</p>
+
+    <p>The latest version is Java 11, released on September 25, 2018. Java 11 is a currently supported long-term
+        support (LTS) version ("Oracle Customers will receive Oracle Premier Support"); Oracle released for the
+        "legacy" Java 8 LTS the last "public update", which is free for commercial use, in January 2019. Oracle will
+        still support Java 8 with public updates for personal use up to at least December 2020. Oracle (and others)
+        "highly recommend that you uninstall older versions of Java", because of serious risks due to unresolved
+        security issues. Since Java 9 is no longer supported, Oracle advises its users to "immediately
+        transition" to Java 11. Oracle extended support for Java 6 ended in December 2018</p>
+
+    <div style = "text-align: center">
+    <figure class="figure" style="text-align: center">
+        <img style="width: 700px;"  class ="img-fluid" src="https://media.xconomy.com/wordpress/wp-content/images/2014/04/06184730/Xconomy_7216_041014.jpg">
+        <figcaption class="figure-caption text-center">James Gosling - creator of the Java programming language.</figcaption>
+    </figure>
+    </div>
+
+    <h2> Java history </h2>
+    <p><a href="https://en.wikipedia.org/wiki/James_Gosling">James Gosling</a>, Mike Sheridan, and Patrick Naughton initiated the Java language project in June 1991.
+        Java was originally designed for interactive television, but it was too advanced for the digital cable
+        television industry at the time. The language was initially called Oak after an oak tree that stood
+        outside Gosling's office. Later the project went by the name Green and was finally renamed Java, from Java
+        coffee. Gosling designed Java with a C/C++-style syntax that system and application programmers would find
+        familiar.</p>
+
+    <p>Sun Microsystems released the first public implementation as Java 1.0 in 1996. It promised
+        <em><strong><abbr title="Write Once, Run Anywhere">WORA</abbr></strong></em>, providing no-cost run-times on
+        popular platforms. Fairly secure and featuring configurable security, it allowed network- and file-access
+        restrictions. Major web browsers soon incorporated the ability to run Java applets within web pages, and
+        Java quickly became popular. The Java 1.0 compiler was re-written in Java by Arthur van Hoff to comply
+        strictly with the Java 1.0 language specification. With the advent of Java 2 (released initially as J2SE 1.2
+        in December 1998 – 1999), new versions had multiple configurations built for different types of platforms.
+        J2EE included technologies and APIs for enterprise applications typically run in server environments,
+        while J2ME featured APIs optimized for mobile applications. The desktop version was renamed J2SE.
+        In 2006, for marketing purposes, Sun renamed new J2 versions as Java EE, Java ME, and Java SE,
+        respectively.</p>
+
+    <p>In 1997, Sun Microsystems approached the ISO/IEC JTC 1 standards body and later the Ecma International to
+        formalize Java, but it soon withdrew from the process. Java remains a de facto standard,
+        controlled through the Java Community Process. At one time, Sun made most of its Java implementations
+        available without charge, despite their proprietary software status. Sun generated revenue from Java through
+        the selling of licenses for specialized products such as the Java Enterprise System.</p>
+
+    <p>On November 13, 2006, Sun released much of its Java virtual machine (JVM) as free and open-source software,
+        (FOSS), under the terms of the GNU General Public License (GPL). On May 8, 2007, Sun finished the process,
+        making all of its JVM's core code available under free software/open-source distribution terms, aside from a
+        small portion of code to which Sun did not hold the copyright.</p>
+
+    <p>Sun's vice-president Rich Green said that Sun's ideal role with regard to Java was as an "evangelist".
+        Following Oracle Corporation's acquisition of Sun Micro-systems in 2009–10, Oracle has described itself as
+        the "steward of Java technology with a relentless commitment to fostering a community of participation and
+        transparency". This did not prevent Oracle from filing a lawsuit against Google shortly after that for
+        using Java inside the Android SDK (see Google section below). Java software runs on everything from laptops
+        to data centers, game consoles to scientific supercomputers. On April 2, 2010, James Gosling resigned
+        from Oracle.</p>
+
+    <p>In January 2016, Oracle announced that Java run-time environments based on JDK 9 will discontinue the
+        browser plugin</p>
+
+
+
+    <h2>Versions</h2>
+    <table class="table table-bordered text-center">
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">Version</th>
+            <th scope="col">Release Date</th>
+        </tr>
+        </thead>
+        <tr>
+            <td>JDK 1.0</td>
+            <td>January 23, 1996</td>
+        </tr>
+        <tr>
+            <td>JDK 1.1</td>
+            <td>February 19, 1997</td>
+        </tr>
+        <tr>
+            <td>J2SE 1.2</td>
+            <td>December 8, 1998</td>
+        </tr>
+        <tr>
+            <td>J2SE 1.3</td>
+            <td>May 8, 2000</td>
+        </tr>
+        <tr>
+            <td>J2SE 1.4</td>
+            <td>February 6, 2002</td>
+        </tr>
+        <tr>
+            <td>J2SE 5.0</td>
+            <td>September 30, 2004</td>
+        </tr>
+        <tr>
+            <td>Java SE 6</td>
+            <td>December 11, 2006</td>
+        </tr>
+        <tr>
+            <td>Java SE 7</td>
+            <td>July 28, 2011</td>
+        </tr>
+        <tr>
+            <td>Java SE 8</td>
+            <td>March 18, 2014</td>
+        </tr>
+        <tr>
+            <td>Java SE 9</td>
+            <td>September 21, 2017</td>
+        </tr>
+        <tr>
+            <td>Java SE 10</td>
+            <td>March 20, 2018</td>
+        </tr>
+        <tr>
+            <td>Java SE 11</td>
+            <td>September 25, 2018</td>
+        </tr>
+
+    </table>
+
+
+</main>
+
+<!-- Footer -->
+<footer id ="footer">
+    <div class="container text-center">
+        <i class="fab fa-html5" style = "margin-right:20px;"></i>
+        <a href="mailto:twoj.adres.email">Łukasz Krówka</a>
+        <i class="fab fa-css3" style = "margin-left:20px;"></i>
+    </div>
+</footer>
+<!-- Footer -->
+
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

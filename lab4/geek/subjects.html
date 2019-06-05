@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<style>
+
+    input[type=text] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    button {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        text-align: center;
+    }
+
+    .column {
+        margin: 3px;
+        float: left;
+        padding: 10px;
+        width: 32.5%;
+        border-radius: 5px;
+        background-color: #f2f2f2;
+    }
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+</style>
+
+<body>
+<div class="row">
+    <div class="column">
+        <form action="/subjects/add" method="post">
+            <label for="subject_name">Nazwa przedmiotu </label>
+            <input type="text" name="subject_name">
+            <label for="student_name">Student </label>
+            <input type="text" name="student_name">
+            <button type="submit">Dodaj studenta</button>
+        </form>
+    </div>
+
+    <div class="column">
+        <form action="/subjects/show" method="get">
+            <label for="subject_name">Nazwa przedmiotu </label>
+            <input type="text" name="subject_name">
+            <button type="submit">Pokaz liste</button>
+        </form>
+    </div>
+
+    <div class="column">
+        <form action="/subjects/delete" method="post">
+            <label for="subject_name">Nazwa przedmiotu </label>
+            <input type="text" name="subject_name">
+            <label for="student_name">Student </label>
+            <input type="text" name="student_name">
+            <button type="submit">Usun rekord</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

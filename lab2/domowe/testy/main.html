@@ -1,0 +1,77 @@
+<!-- Źródło / Source: https://mochajs.org/#running-mocha-in-the-browser -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>
+        Mocha tests
+    </title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          href="https://unpkg.com/mocha/mocha.css">
+</head>
+<body>
+<div id="mocha">
+</div>
+<script>
+    // var input;
+    // while(input = window.prompt("Give a number")){
+    //     //document.getElementById("mocha").innerHTML += "\n" + window.prompt("aaa")
+    //     document.getElementById("mocha").innerHTML += "\n" + window.prompt("aaa")
+    // }
+    // var input = "";
+    // do{
+    //     document.getElementById("mocha").innerHTML += "\n" + input;
+    //     input = window.prompt("Give a number");
+    // }while(input != null);
+    function digits(string) {
+        var sum = 0;
+        for (var i = 0; i < string.length; i++) {
+            if (!isNaN(string[i])) {
+                document.getElementById("mocha").innerText += "\n" + string[i] + " is a number\n";
+                sum += 1;
+            } else {
+                document.getElementById("mocha").innerText += "\n" + string[i] + " is a NaN\n";
+            }
+        }
+        //document.getElementById("mocha").innerText += "\n" + sum;
+        //  for(j of string){
+        //      document.getElementById("mocha").innerText += "\n" + parseFloat(j);
+        //      if (!isNaN(j)) {
+        //          document.getElementById("mocha").innerText += "\n" + j + " is a number\n";
+        //
+        //      } else {
+        //          document.getElementById("mocha").innerText += "\n" + j + " is a NaN\n";
+        //      }
+        //  }
+
+
+    }
+
+    var x = window.prompt("Blah blah blah");
+    while (x != null) {
+        // for(let i of input){
+        //     document.getElementById("mocha").innerText += " " + i;
+        // }
+        //document.getElementById("mocha").innerText += "\n" + input;
+        digits(x);
+        x = window.prompt("Blah blah blah");
+    }
+
+
+</script>
+<!--<script src="https://unpkg.com/chai/chai.js"></script>-->
+<!--<script src="https://unpkg.com/mocha/mocha.js"></script>-->
+<!--<script class="mocha-init">-->
+
+<!--mocha.setup('bdd');-->
+<!--mocha.checkLeaks();-->
+<!--</script>-->
+<!--<script src="script.js"></script>-->
+<!--<script class="mocha-exec">-->
+
+<!--mocha.run();-->
+<!--</script>-->
+</body>
+</html>

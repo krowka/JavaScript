@@ -1,0 +1,22 @@
+{
+  "name": "domowe",
+  "version": "1.0.0",
+  "description": "AGH JavaScript Course",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app2.js",
+    "test": "mocha"
+  },
+  "author": "me",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "pug": "^2.0.3",
+    "yarn": "^1.15.2"
+  },
+  "devDependencies": {
+    "mocha": "^6.1.4",
+    "supertest": "^4.0.2"
+  }
+}

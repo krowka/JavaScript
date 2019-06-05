@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zad 1</title>
+</head>
+<style>
+    body {
+        text-align: center;
+    }
+
+    h2 {
+        font-family: Garamond;
+        border-radius: 15px;
+        width: 100%;
+        background-color: lightgray;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .button {
+        color: white;
+        font-weight: bold;
+        padding: 3%;
+        width: 49%;
+        font-size: xx-large;
+        font-family: Garamond;
+        transition-duration: 0.4s;
+        opacity: 0.7;
+    }
+
+    #start {
+        background-color: green;
+    }
+    #stop {
+        background-color: red;
+    }
+
+    .button:hover {
+        opacity: 1;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+
+</style>
+<body>
+    <form>
+        <input class = "button" type = "button" id = "start" value = "START">
+        <input class = "button" type = "button" id = "stop" value = "STOP">
+    </form>
+    <h2>INTERVAL</h2>
+    <div id = "interval"></div>
+    <h2>TIMEOUT</h2>
+    <div id = "timeout"></div>
+    <h2>REQUEST</h2>
+    <div id = "request"></div>
+    <div id = "requestTime"></div>
+    <button type = "button" id = "show_hide" style = "margin-top: 25px">SHOW</button>
+    <div id = "description" style = "margin-top: 20px"></div>
+    <div>
+        <img src="" style = "width: 75%; margin-top: 10px">
+    </div>
+    <script src = "script.js"></script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible"
+          content="ie=edge">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="sheet.css">
+    <!-- Page title -->
+
+    <title>
+        Thinking in Java
+    </title>
+</head>
+
+<body>
+
+<!--Tutaj menu nawigacyjne / Here the navigation menu-->
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+    <a class="navbar-brand" href="home.html">Thinking in Java</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="home.html">Java</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="description.html">About book</a>
+            </li>
+            <li class="nav-item active dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" a
+                   ria-haspopup="true" aria-expanded="false">
+                    Book
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="introduction_to_object.html">Introduction to Objects</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="progress_of_abstraction.html">The progress of abstraction</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="object_has_interface.html">An object has an interface</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="object_provides_services.html">An object provides services</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item active" href="hidden_implementation.html">The hidden implementation</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="reusing%20_implementation.html">Reusing the implementation</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="inheritance.html">Inheritance</a>
+                </div>
+        </ul>
+    </div>
+</nav>
+
+<main style="margin: 30px">
+    <!--Tutaj treść strony / Here the content of the page -->
+
+    <h2>The hidden implementation</h2>
+    <p>
+        It is helpful to break up the playing field into class creators (those who create new data types) and client
+        programmers
+        <sup id="ref4"><a class="sb" href="#fn4" data-toggle="tooltip" data-placement="top"
+                          title="I’m indebted to my friend Scott Meyers for this term.">
+            4</a></sup>
+        (the class consumers who use the data types in their applications). The goal of the client
+        programmer is to collect a toolbox full of classes to use for rapid application development. The goal of the
+        class creator is to build a class that exposes only what’s necessary to the client programmer and keeps
+        everything else hidden. Why? Because if it’s hidden, the client programmer can’t access it, which means that the
+        class creator can change the hidden portion at will without worrying about the impact on anyone else. The hidden
+        portion usually represents the tender insides of an object that could easily be corrupted by a careless or
+        uninformed client programmer, so hiding the implementation reduces program bugs.
+    </p>
+
+    <p>
+        In any relationship it’s important to have boundaries that are respected by all parties involved. When you
+        create a library, you establish a relationship with the client programmer, who is also a programmer, but one who
+        is putting together an application by using your library, possibly to build a bigger library. If all the members
+        of a class are available to everyone, then the client programmer can do anything with that class and there’s no
+        way to enforce rules. Even though you might really prefer that the client programmer not directly manipulate
+        some of the members of your class, without access control there’s no way to prevent it. Everything’s naked to
+        the world.
+    </p>
+
+    <p>
+        So the first reason for access control is to keep client programmers’ hands off portions they shouldn’t
+        touch—parts that are necessary for the internal operation of the data type but not part of the interface that
+        users need in order to solve their particular problems. This is actually a service to client programmers because
+        they can easily see what’s important to them and what they can ignore.
+    </p>
+
+    <p>
+        The second reason for access control is to allow the library designer to change the internal workings of the
+        class without worrying about how it will affect the client programmer. For example, you might implement a
+        particular class in a simple fashion to ease development, and then later discover that you need to rewrite it in
+        order to make it run faster. If the interface and implementation are clearly separated and protected, you can
+        accomplish this easily.
+    </p>
+
+    <p>
+        Java uses three explicit keywords to set the boundaries in a class: <b>public</b>, <b>private</b>, and
+        <b>protected</b>. These access specifiers determine who can use the definitions that follow. <b>public</b>
+        means the following element is available to everyone. The <b>private</b> keyword, on the other hand, means
+        that no one can access that element except you, the creator of the type, inside methods of that type.
+        <b>private</b> is a brick wall between you and the client programmer. Someone who tries to access a
+        <b>private</b> member will get a compile-time error. The <b>protected</b> keyword acts like
+        <b>private</b>, with the exception that an inheriting class has access to <b>protected</b> members,
+        but not private members. Inheritance will be introduced shortly.
+    </p>
+
+    <p>
+        Java also has a “default” access, which comes into play if you don’t use one of the aforementioned specifiers.
+        This is usually called package access because classes can access the members of other classes in the same
+        package (library component), but outside of the package those same members appear to be <b>private</b>.
+    </p>
+
+    <hr>
+    <p>
+        <sup class="footnote" id="fn4">4 </sup>
+        I’m indebted to my friend Scott Meyers for this term.
+        <a href="#ref4"><i class="fas fa-level-up-alt"></i></a>
+    </p>
+
+    <div class="progress" style = " margin-top: 100px; height: 30px">
+        <div class="progress-bar progress-bar-striped active" role="progressbar"
+             aria-valuenow="71,43" aria-valuemin="0" aria-valuemax="100" style="width:71.43%">
+            71,43%
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col text-left">
+            <a href="object_provides_services.html" class="btn previous">
+                &laquo; <b>PREVIOUS</b>: <em>An object provides services</em>
+            </a>
+        </div>
+        <div class="col text-right">
+            <a href="reusing%20_implementation.html" class="btn next text-right">
+                <b>NEXT</b>: <em>Reusing the implementation</em> &raquo;
+            </a>
+        </div>
+    </div>
+
+</main>
+
+
+<!-- Footer -->
+<footer id ="footer">
+    <div class="container text-center">
+        <i class="fab fa-html5" style = "margin-right:20px;"></i>
+        <a href="mailto:twoj.adres.email">Łukasz Krówka</a>
+        <i class="fab fa-css3" style = "margin-left:20px;"></i>
+    </div>
+</footer>
+<!-- Footer -->
+
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "opsArray" : [
+    {
+      "operator" : "+",
+      "number1" : 1,
+      "number2" : 2
+
+    },
+    {
+      "operator" : "-",
+      "number1" : 3,
+      "number2" : 4
+    },
+    {
+      "operator" : "*",
+      "number1" : 5,
+      "number2" : 6
+    },
+    {
+      "operator" : "/",
+      "number1" : 24,
+      "number2" : 4
+    }
+  ]
+}

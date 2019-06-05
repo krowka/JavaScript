@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        var a = Math.floor(Math.random()*10 + 1);
+        console.log(a);
+        var b  = 0;
+        $(document).ready(function () {
+            $("button").click(function () {
+                if(b < a){
+                    b++;
+                    $("#pb").css("width", ((b/a) * 100) + "%");
+                    $("#pb").text(((b/a) * 100) + "%");
+
+                    var arr = $("textarea").val().split(" ");
+                    var wyn = [];
+                    // console.log(arr);
+                    var res = " ";
+                    for (var i = 0; i < arr.length; i++) {
+                        $.get("http://localhost:9000/" + arr[i], function (data, status) {
+
+                            // alert("Data: " + data + "\nStatus: " + status)
+                            // $("textarea").append(data);
+                            console.log(parseInt(data));
+                            // $("textarea").val(data);
+                            wyn.push(parseInt(data));
+                            res  += data;
+                        });
+
+                    }
+                    // console.log(res);
+                    // var s = "";
+                    // for(var i = 0; i < res.length; i++){
+                    //     s += " " + res[i];
+                    // }
+                    console.log(wyn);
+                    // $("textarea").val(res);
+                    $("textarea").text(wyn.toString());
+                    // alert(res);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+
+<label>
+    <textarea rows="4" cols="50">1 2 3 </textarea>
+</label>
+<button>Send an HTTP GET request</button>
+<br><br>
+<div class="container">
+    <h2>Progress Bar With Label</h2>
+    <div class="progress">
+        <div class="progress-bar" id ="pb" style="width:0%">0%</div>
+    </div>
+</div>
+
+</body>
+</html>

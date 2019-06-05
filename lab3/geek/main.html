@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game</title>
+</head>
+<style>
+
+    /* The Modal (background) */
+
+    main {
+        display: none;
+    }
+
+    .start {
+        display: block; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 2; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0); /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+        /*background-color: whitesmoke;*/
+        /*background-color: rgb(0, 0, 0); !* Fallback color *!*/
+        /*background-color: rgba(0, 0, 0, 0.4); !* Black w/ opacity *!*/
+        text-align: center;
+    }
+
+    #start-btn {
+        opacity: 0.5;
+        background-color: darkgreen;
+        border-radius: 100px;
+        color: white;
+        font-size: large;
+        margin-top: 21.5%; /* 15% from the top and centered */
+        /*padding: 50px;*/
+        /*border: 1px solid #888;*/
+        height: 15%;
+        width: 15%; /* Could be more or less, depending on screen size */
+    }
+
+    #start-btn:hover {
+        opacity: 1;
+    }
+
+    #boxText {
+        white-space: pre;
+    }
+
+    .popUp {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0); /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+        text-align: center;
+    }
+
+    /* Modal Content/Box */
+    .popUpContent {
+        background-color: #fefefe;
+        margin: 15% auto; /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 25%; /* Could be more or less, depending on screen size */
+    }
+
+    /*!* The Close Button *!*/
+    /*!*.close {*!*/
+        /*!*color: #aaa;*!*/
+        /*!*float: right;*!*/
+        /*!*font-size: 28px;*!*/
+        /*!*font-weight: bold;*!*/
+    /*!*}*!*/
+
+    /*.close:hover,*/
+    /*.close:focus {*/
+        /*color: black;*/
+        /*text-decoration: none;*/
+        /*cursor: pointer;*/
+    /*}*/
+
+    #canvas {
+        width: 86.5%;
+    }
+
+    #canvasLoad {
+        width: 100%;
+        height: 100%;
+    }
+
+    .right {
+        float: right;
+        width: 13%;
+        display: inline-block;
+    }
+
+    table {
+        margin-bottom: 10px;
+        border: 1px solid black;
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 5px;
+        text-align: center;
+    }
+
+</style>
+<body onload="drawCircle()">
+<canvas id="canvasLoad" width="1200px" height="600px">
+    Wygląda na to, że twoja przeglądarka nie obsługuje elementu "canvas" / It looks like your browser does not
+    support the "canvas" element
+</canvas>
+
+<div id="start" class="start">
+    <button type="button" id="start-btn">START GAME</button>
+</div>
+
+<div id="popUp" class="popUp">
+    <div class="popUpContent">
+        <!--<span class="close">&times;</span>-->
+        <p id="boxText">----</p>
+        <button type="button" id="btn">OK</button>
+    </div>
+</div>
+<main>
+    <canvas id="canvas" width="1200px" height="600px" style="border:1px solid #000000;">
+        Wygląda na to, że twoja przeglądarka nie obsługuje elementu "canvas" / It looks like your browser does not
+        support the "canvas" element
+    </canvas>
+    <div class="right">
+        <table>
+            <tr>
+                <th colspan="2">BEST PLAYERS</th>
+                <th>SCORE</th>
+            </tr>
+            <tr id="firstRow">
+                <td>1</td>
+                <td></td>
+                <td>0</td>
+            </tr>
+            <tr id="secondRow">
+                <td>2</td>
+                <td>----</td>
+                <td>0</td>
+            </tr>
+            <tr id="thirdRow">
+                <td>3</td>
+                <td>----</td>
+                <td>0</td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <th colspan="2">YOUR SCORE</th>
+            </tr>
+            <tr>
+                <td id="player_name">------</td>
+                <td id="player_score">-----</td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <th>DIFFICULTY</th>
+            </tr>
+            <tr>
+                <td id="difficulty">----</td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <th>TIMER</th>
+            </tr>
+            <tr>
+                <td id="timer">----</td>
+            </tr>
+        </table>
+
+    </div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

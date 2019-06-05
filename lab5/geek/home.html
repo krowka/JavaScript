@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <title>Home</title>
+</head>
+<style>
+    /*!* Full-width input fields *!*/
+    /*input[type=text], input[type=password] {*/
+    /*    width: 90%;*/
+    /*    padding: 12px 20px;*/
+    /*    margin: 8px 26px;*/
+    /*    display: inline-block;*/
+    /*    border: 1px solid #ccc;*/
+    /*    box-sizing: border-box;*/
+    /*    font-size:16px;*/
+    /*}*/
+
+    /*!* Set a style for all buttons *!*/
+    /*button {*/
+    /*    background-color: #4CAF50;*/
+    /*    color: white;*/
+    /*    padding: 14px 20px;*/
+    /*    margin: 8px 26px;*/
+    /*    border: none;*/
+    /*    cursor: pointer;*/
+    /*    width: 90%;*/
+    /*    font-size:20px;*/
+    /*}*/
+    /*button:hover {*/
+    /*    opacity: 0.8;*/
+    /*}*/
+
+    /*!* Center the image and position the close button *!*/
+    /*.imgcontainer {*/
+    /*    text-align: center;*/
+    /*    margin: 24px 0 12px 0;*/
+    /*    position: relative;*/
+    /*}*/
+    /*.avatar {*/
+    /*    width: 200px;*/
+    /*    height:200px;*/
+    /*    border-radius: 50%;*/
+    /*}*/
+
+    /*#modal-wrapper {*/
+    /*    display: none;*/
+    /*    width:200px;*/
+    /*    margin-top:200px;*/
+    /*    margin-left:160px;*/
+    /*}*/
+
+    /*!* The Modal (background) *!*/
+    /*.modal {*/
+    /*    !*display:none;*!*/
+    /*    position: fixed;*/
+    /*    z-index: 1;*/
+    /*    left: 0;*/
+    /*    top: 0;*/
+    /*    width: 100%;*/
+    /*    height: 100%;*/
+    /*    overflow: auto;*/
+    /*    background-color: rgba(0,0,0,0.4);*/
+    /*}*/
+
+    /*!* Modal Content Box *!*/
+    /*.modal-content {*/
+    /*    background-color: #fefefe;*/
+    /*    margin: 4% auto 15% auto;*/
+    /*    border: 1px solid #888;*/
+    /*    width: 40%;*/
+    /*    padding-bottom: 30px;*/
+    /*}*/
+
+    /*!* The Close Button (x) *!*/
+    /*.close {*/
+    /*    position: absolute;*/
+    /*    right: 25px;*/
+    /*    top: 0;*/
+    /*    color: #000;*/
+    /*    font-size: 35px;*/
+    /*    font-weight: bold;*/
+    /*}*/
+    /*.close:hover,.close:focus {*/
+    /*    color: red;*/
+    /*    cursor: pointer;*/
+    /*}*/
+
+    /*!* Add Zoom Animation *!*/
+    /*.animate {*/
+    /*    animation: zoom 0.6s*/
+    /*}*/
+    /*@keyframes zoom {*/
+    /*    from {transform: scale(0)}*/
+    /*    to {transform: scale(1)}*/
+    /*}*/
+
+
+    body {
+        text-align: center;
+    }
+
+    .column {
+        float: left;
+        padding: 10px;
+    }
+
+    .left, .right {
+        width: 33%;
+    }
+
+    .middle {
+        width: 33%;
+    }
+
+    /*!* Clear floats after the columns *!*/
+    /*.row:after {*/
+    /*    content: "";*/
+    /*    display: table;*/
+    /*    clear: both;*/
+    /*}*/
+
+    /*!*.wrapper {*!*/
+    /*!*    *!*/
+    /*!*    width: 100%;*!*/
+    /*!*    height: 100%;*!*/
+    /*!*}*!*/
+
+    img {
+        width: 100%;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 150px;
+        font-size: xx-large;
+        background-color: #85c1e9;
+        border-radius: 10px;
+    }
+
+    .myBtn {
+        opacity: 0.7;
+        font-family: Georgia, serif;
+        font-size: xx-large;
+        border-radius: 10px;
+        width: 95%;
+        height: 120px;
+        margin: 100px 10px;
+        padding: 3px 6px 3px;
+        background-color: khaki;
+        color: buttontext;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    .myBtn:hover {
+        opacity: 1;
+    }
+</style>
+<body>
+
+<div class="modal fade" id="modalLoginFormStudent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Logowanie studenta</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/students/login" method="post">
+                <div class="modal-body mx-3">
+                    <div class="md-form mb-5">
+                        <i class="fas fa-envelope prefix grey-text"></i>
+                        <input name="id" type="number" id="defaultForm-id1" class="form-control validate">
+                        <label data-error="wrong" data-success="right" for="defaultForm-id1">Numer indeksu</label>
+                    </div>
+
+                    <div class="md-form mb-4">
+                        <i class="fas fa-lock prefix grey-text"></i>
+                        <input name="password" type="password" id="defaultForm-pass1" class="form-control validate">
+                        <label data-error="wrong" data-success="right" for="defaultForm-pass1">Hasło</label>
+                    </div>
+
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button type="submit" class="btn btn-default">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalLoginFormTeacher" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Logowanie prowadzącego</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/teachers/login" method="post">
+                <div class="modal-body mx-3">
+                    <div class="md-form mb-5">
+                        <i class="fas fa-envelope prefix grey-text"></i>
+                        <input name="id" type="number" id="defaultForm-id2" class="form-control validate">
+                        <label data-error="wrong" data-success="right" for="defaultForm-id2">ID prowadzącego</label>
+                    </div>
+
+                    <div class="md-form mb-4">
+                        <i class="fas fa-lock prefix grey-text"></i>
+                        <input name="password" type="password" id="defaultForm-pass2" class="form-control validate">
+                        <label data-error="wrong" data-success="right" for="defaultForm-pass2">Hasło</label>
+                    </div>
+
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button type="submit" class="btn btn-default">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--<div class="text-center">-->
+<!--    <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">Launch-->
+<!--        Modal Login Form</a>-->
+<!--</div>-->
+
+<div class="logo"><h1>WIRTUALNY DZIEKANAT</h1></div>
+<div class="row">
+    <div class="column left">
+
+        <button data-toggle="modal" data-target="#modalLoginFormStudent" class="myBtn" id="b1">STUDENCI</button>
+
+    </div>
+    <div class="column middle">
+        <!--        <img src="public/agh.png" alt = " ">-->
+        <img src="agh.png" alt=" ">
+    </div>
+    <div class="column right">
+
+        <button data-toggle="modal" data-target="#modalLoginFormTeacher" class="myBtn" id="b2" type="submit">
+            PROWADZĄCY
+        </button>
+
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible"
+          content="ie=edge">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="sheet.css">
+    <!-- Page title -->
+
+    <title>
+        Thinking in Java
+    </title>
+</head>
+
+<body>
+
+<!--Tutaj menu nawigacyjne / Here the navigation menu-->
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+    <a class="navbar-brand" href="home.html">Thinking in Java</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="home.html">Java</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="description.html">About book</a>
+            </li>
+            <li class="nav-item active dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" a
+                   ria-haspopup="true" aria-expanded="false">
+                    Book
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="introduction_to_object.html">Introduction to Objects</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item active" href="progress_of_abstraction.html">The progress of abstraction</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="object_has_interface.html">An object has an interface</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="object_provides_services.html">An object provides services</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="hidden_implementation.html">The hidden implementation</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="reusing%20_implementation.html">Reusing the implementation</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="inheritance.html">Inheritance</a>
+                </div>
+        </ul>
+    </div>
+</nav>
+
+<main style="margin: 30px">
+    <!--Tutaj treść strony / Here the content of the page -->
+
+    <h2>The progress of abstraction</h2>
+    <p>
+        All programming languages provide abstractions. It can be argued that the complexity of the problems you’re able
+        to solve is directly related to the kind and quality of abstraction. By “kind” I mean, “What is it that you are
+        abstracting?” Assembly language is a small abstraction of the underlying machine. Many so-called “imperative”
+        languages that followed (such as FORTRAN, BASIC, and C) were abstractions of assembly language. These languages
+        are big improvements over assembly language, but their primary abstraction still requires you to think in terms
+        of the structure of the computer rather than the structure of the problem you are trying to solve. The
+        programmer must establish the association between the machine model (in the “solution space,” which is the place
+        where you’re implementing that solution, such as a computer) and the model of the problem that is actually being
+        solved (in the Thinking in JavaBruce Eckel“problem space,” which is the place where the problem exists, such as
+        a business). The effort required to perform this mapping, and the fact that it is extrinsic to the programming
+        language, produces programs that are difficult to write and expensive to maintain, and as a side effect created
+        the entire “programming methods” industry.
+    </p>
+    <p>
+        The alternative to modeling the machine is to model the problem you’re trying to solve. Early languages such as
+        LISP and APL chose particular views of the world (“All problems are ultimately lists” or “All problems are
+        algorithmic,” respectively). Prolog casts all problems into chains of decisions. Languages have been created for
+        constraint-based programming and for programming exclusively by manipulating graphical symbols. (The latter
+        proved to be too restrictive.) Each of these approaches may be a good solution to the particular class of
+        problem they’re designed to solve, but when you step outside of that domain they become awkward.
+    </p>
+    <p>
+        The object-oriented approach goes a step further by providing tools for the programmer to represent elements in
+        the problem space. This representation is general enough that the programmer is not constrained to any
+        particular type of problem. We refer to the elements in the problem space and their representations in the
+        solution space as “objects.” (You will also need other objects that don’t have problem-space analogs.) The idea
+        is that the program is allowed to adapt itself to the lingo of the problem by adding new types of objects, so
+        when you read the code describing the solution, you’re reading words that also express the problem. This is a
+        more flexible and powerful language abstraction than what we’ve had before.
+        <sup id="ref1"><a class="sb" href="#fn1" data-toggle="tooltip" data-placement="top"
+                          title="Some language designers have decided that object-oriented programming by itself is not adequate to easily solve all programming problems, and advocate the combination of various approaches into multiparadigm programming languages. See Multiparadigm Programming in Leda by Timothy Budd (Addison-Wesley, 1995).">
+            1</a></sup>
+        Thus, OOP allows you to describe
+        the problem in terms of the problem, rather than in terms of the computer where the solution will run. There’s
+        still a connection back to the computer: Each object looks quite a bit like a little computer—it has a state,
+        and it has operations that you can ask it to perform. However, this doesn’t seem like such a bad analogy to
+        objects in the real world—they all have characteristics and behaviors.
+    </p>
+    <p>
+        Alan Kay summarized five basic characteristics of Smalltalk, the first successful object-oriented language and
+        one of the languages upon which Java is based. These characteristics represent a pure approach to
+        object-oriented programming:
+
+    <dl>
+        <ol>
+            <li>
+                <dt>Everything is an object.</dt>
+            </li>
+            <dd>
+                Think of an object as a fancy variable; it stores data, but you can “make
+                requests” to that object, asking it to perform operations on itself. In theory, you can take any
+                conceptual component in the problem you’re trying to solve (dogs, buildings, services, etc.) and
+                represent it as an object in your program.
+            </dd>
+
+            <li>
+                <dt>A program is a bunch of objects telling each other what to do by sending messages.</dt>
+            </li>
+            <dd>
+                To make a request of
+                an object, you “send a message” to that object. More concretely, you can think of a message as a request
+                to call a method that belongs to a particular object.
+            </dd>
+
+            <li>
+                <dt>Each object has its own memory made up of other objects.</dt>
+            </li>
+            <dd>
+                Put another way, you create a new kind of
+                object by making a package containing existing objects. Thus, you can build complexity into a program
+                while hiding it behind the simplicity of objects.
+            </dd>
+
+            <li>
+                <dt>Every object has a type.</dt>
+            </li>
+            <dd>
+                Using the parlance, each object is an instance of a class, in which “class” is
+                synonymous with “type.” The most important distinguishing characteristic of a class is “What messages
+                can you send to it?”
+            </dd>
+
+            <li>
+                <dt>All objects of a particular type can receive the same messages.</dt>
+            </li>
+            <dd>
+                This is actually a loaded statement, as
+                you will see later. Because an object of type “circle” is also an object of type “shape,” a circle is
+                guaranteed to accept shape messages. This means you can write code that talks to shapes and
+                automatically handle anything that fits the description of a shape. This substitutability is one of the
+                powerful concepts in OOP.
+            </dd>
+        </ol>
+    </dl>
+    </p>
+
+    <p>Booch offers an even more succinct description of an object:</p>
+    <div style="margin-left: 50px">
+        <p><em>An object has state, behavior and identity.</em></p>
+    </div>
+    <p>
+        This means that an object can have internal data (which gives it state), methods (to produce behavior),
+        and each object can be uniquely distinguished from every other object—to put this in a concrete sense,
+        each object has a unique address in memory.
+        <sup id="ref2"><a class="sb" href="#fn2" data-toggle="tooltip" data-placement="top"
+                          title="This is actually a bit restrictive, since objects can conceivably exist in different machines and address spaces, and they can also be stored on disk. In these cases, the identity of the object must be determined by something other than memory address.">
+            2</a></sup>
+    </p>
+    <hr>
+    <p>
+        <sup class="footnote" id="fn1">1 </sup>
+        Some language designers have decided that object-oriented programming by itself is not adequate
+        to easily solve all programming problems, and advocate the combination of various approaches into multiparadigm
+        programming languages. See Multiparadigm Programming in Leda by Timothy Budd (Addison-Wesley, 1995).
+        <a href="#ref1"><i class="fas fa-level-up-alt"></i></a>
+    </p>
+    <p>
+        <sup class="footnote" id="fn2">2 </sup>
+        This is actually a bit restrictive, since objects can conceivably exist in different machines and address
+        spaces, and they can also be stored on disk. In these cases, the identity of the object must be determined by
+        something other than memory address.
+        <a href="#ref2"><i class="fas fa-level-up-alt"></i></a>
+    </p>
+
+    <div class="progress" style = " margin-top: 100px; height: 30px">
+        <div class="progress-bar progress-bar-striped active" role="progressbar"
+             aria-valuenow="28,57" aria-valuemin="0" aria-valuemax="100" style="width:28.57%">
+            28,57%
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col text-left">
+            <a href="introduction_to_object.html" class="btn previous">
+                &laquo; <b>PREVIOUS</b>: <em>Introduction to Objects</em>
+            </a>
+        </div>
+        <div class="col text-right">
+            <a href="object_has_interface.html" class="btn next text-right">
+                <b>NEXT</b>: <em>An object has an interface</em> &raquo;
+            </a>
+        </div>
+    </div>
+
+</main>
+
+
+<!-- Footer -->
+<footer id ="footer">
+    <div class="container text-center">
+        <i class="fab fa-html5" style = "margin-right:20px;"></i>
+        <a href="mailto:twoj.adres.email">Łukasz Krówka</a>
+        <i class="fab fa-css3" style = "margin-left:20px;"></i>
+    </div>
+</footer>
+<!-- Footer -->
+
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

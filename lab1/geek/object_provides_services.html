@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible"
+          content="ie=edge">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="sheet.css">
+    <!-- Page title -->
+
+    <title>
+        Thinking in Java
+    </title>
+</head>
+
+<body>
+
+<!--Tutaj menu nawigacyjne / Here the navigation menu-->
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+    <a class="navbar-brand" href="home.html">Thinking in Java</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="home.html">Java</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="description.html">About book</a>
+            </li>
+            <li class="nav-item active dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" a
+                   ria-haspopup="true" aria-expanded="false">
+                    Book
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="introduction_to_object.html">Introduction to Objects</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="progress_of_abstraction.html">The progress of abstraction</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="object_has_interface.html">An object has an interface</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item active" href="object_provides_services.html">An object provides services</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="hidden_implementation.html">The hidden implementation</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="reusing%20_implementation.html">Reusing the implementation</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="inheritance.html">Inheritance</a>
+                </div>
+        </ul>
+    </div>
+</nav>
+
+<main style="margin: 30px">
+    <!--Tutaj treść strony / Here the content of the page -->
+
+    <h2>An object provides services</h2>
+
+    <p>
+        While you’re trying to develop or understand a program design, one of the best ways to think about objects is as
+        “service providers.” Your program itself will provide services to the user, and it will accomplish this by using
+        the services offered by other objects. Your goal is to Introduction to Objects produce (or even better, locate
+        in existing code libraries) a set of objects that provide the ideal services to solve your problem.
+    </p>
+
+    <p>
+        A way to start doing this is to ask, “If I could magically pull them out of a hat, what objects would solve my
+        problem right away?” For example, suppose you are creating a bookkeeping program. You might imagine some objects
+        that contain pre-defined bookkeeping input screens, another set of objects that perform bookkeeping
+        calculations, and an object that handles printing of checks and invoices on all different kinds of printers.
+        Maybe some of these objects already exist, and for the ones that don’t, what would they look like? What services
+        would those objects provide, and what objects would they need to fulfill their obligations? If you keep doing
+        this, you will eventually reach a point where you can say either, “That object seems simple enough to sit down
+        and write” or “I’m sure that object must exist already.” This is a reasonable way to decompose a problem into a
+        set of objects.
+    </p>
+
+    <p>
+        Thinking of an object as a service provider has an additional benefit: It helps to improve the cohesiveness of
+        the object. High cohesion is a fundamental quality of software design: It means that the various aspects of a
+        software component (such as an object, although this could also apply to a method or a library of objects) “fit
+        together” well. One problem people have when designing objects is cramming too much functionality into one
+        object. For example, in your check printing module, you may decide you need an object that knows all about
+        formatting and printing. You’ll probably discover that this is too much for one object, and that what you need
+        is three or more objects. One object might be a catalog of all the possible check layouts, which can be queried
+        for information about how to print a check. One object or set of objects can be a generic printing interface
+        that knows all about different kinds of printers (but nothing about bookkeeping—this one is a candidate for
+        buying rather than writing yourself). And a third object could use the services of the other two to accomplish
+        the task. Thus, each object has a cohesive set of services it offers. In a good object-oriented design, each
+        object does one thing well, but doesn’t try to do too much. This not only allows the discovery of objects that
+        might be purchased (the printer interface object), but it also produces new objects that might be reused
+        somewhere else (the catalog of check layouts).
+    </p>
+
+    <p>
+        Treating objects as service providers is a great simplifying tool. This is useful not only during the design
+        process, but also when someone else is trying to understand your code or reuse an object. If they can see the
+        value of the object based on what service it provides, it makes it much easier to fit it into the design.
+    </p>
+
+    <div class="progress" style = " margin-top: 100px; height: 30px">
+        <div class="progress-bar progress-bar-striped active" role="progressbar"
+             aria-valuenow="57,14" aria-valuemin="0" aria-valuemax="100" style="width:57.14%">
+            57,14%
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col text-left">
+            <a href="object_has_interface.html" class="btn previous">
+                &laquo; <b>PREVIOUS</b>: <em>An object has an interface</em>
+            </a>
+        </div>
+        <div class="col text-right">
+            <a href="hidden_implementation.html" class="btn next text-right">
+                <b>NEXT</b>: <em>The hidden implementation</em> &raquo;
+            </a>
+        </div>
+    </div>
+
+</main>
+
+
+<!-- Footer -->
+<footer id ="footer">
+    <div class="container text-center">
+        <i class="fab fa-html5" style = "margin-right:20px;"></i>
+        <a href="mailto:twoj.adres.email">Łukasz Krówka</a>
+        <i class="fab fa-css3" style = "margin-left:20px;"></i>
+    </div>
+</footer>
+<!-- Footer -->
+
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

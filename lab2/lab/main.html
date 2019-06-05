@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    body {
+        text-align: center;
+    }
+
+    main {
+        margin: 3%;
+        text-align: center;
+    }
+
+    canvas {
+        width: 90%;
+    }
+
+    textarea {
+        width: 90%;
+    }
+
+    .color-box {
+        border: 1px solid rgba(0, 0, 0, .2);
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        margin-right: 5px;
+    }
+
+    .description {
+        font-size: 20px;
+        display: inline-block
+    }
+</style>
+<body onload = "datetime()">
+<div id="date"></div>
+<main>
+
+    <script>
+        var t = new Date();
+        function format(x) {
+            return x < 10 ? "0" + x : x;
+        }
+        function datetime() {
+            var date = new Date();
+            var h = format(date.getHours());
+            var m = format(date.getMinutes());
+            var s = format(date.getSeconds());
+            var diff = Math.round((date-t)/1000);
+            if(diff >= 3600)
+                diff = Math.round(diff/3600) + " h " + Math.round(diff/60)%60 + " min " + diff %60 + " s";
+            else if (diff >= 60)
+                diff = Math.round(diff/60)%60 + " min " + diff %60 + " s";
+            else
+                diff = diff %60 + " s";
+            document.getElementById("date").innerHTML = date.toLocaleString() + "<br>" + "Spedziłeś na stronie już: " + diff;
+            setTimeout(datetime, 1000)
+        }
+    </script>
+    <form>
+        <!--<input name="pole_tekstowe" type="text">-->
+        <div>
+            <textarea id="ta" rows="10"></textarea>
+        </div>
+        <input id="btn" type="button" value="Wypisz">
+    </form>
+    <p id="output"></p>
+    <canvas id="canvas"
+            width="1200px"
+            height="600px"
+            style="border:1px solid #000000;">
+        Wygląda na to, że twoja przeglądarka nie obsługuje elementu "canvas" / It looks like your browser does not
+        support the "canvas" element
+    </canvas>
+    <br><br>
+    <div id = "legenda"></div>
+
+    <script src="script.js"></script>
+
+</main>
+</body>
+</html>

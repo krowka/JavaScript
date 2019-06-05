@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Form
+    </title>
+    <script>
+        /*****************************************************************/
+        /* Function that performs (asynchronous) query to the web server */
+        /*****************************************************************/
+        function clock() {
+            // Create an object representing the request to the web server - see https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
+            var xhr = new XMLHttpRequest();
+
+            // Registration of a (user) function that will process the response received from the server
+            xhr.onreadystatechange = () => response(xhr);
+
+            // Execution of the (asynchronous) query to the web server
+            xhr.open('GET', "/time", true);
+            xhr.send(null);
+            // Examples of the use of the above methods - see https://www.w3schools.com/xml/ajax_xmlhttprequest_send.asp
+        }
+
+        function response(xhr) {
+            try {
+                if (xhr.readyState == XMLHttpRequest.DONE) { // If the response is ready
+                    if (xhr.status == 200) {                    // If requst was correct
+
+                        // If the data you receive is a plain text or a JSON document, use the following code
+                        var received_data = xhr.responseText; // Get a response in the form of a string
+                        window.alert(received_data);          // and display it
+
+                        // If the data you receive is an HTML or XML document, use the following code
+                        //var xmlDoc = xhr.responseXML; //Receive the answer in the form of object 'XmlDocument', which can be accessed using DOM methods - see https://www.w3.org/TR/domcore/
+                    } else
+                        window.alert('There was a problem with this request.');
+                }
+            } catch (e) {
+                window.alert('Exception caught: ' + e.description);
+            }
+        }
+    </script>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<main>
+
+    <form method="get" action="/time">
+        <input  type="button" value="CLOCK" onclick="clock()">
+    </form>
+
+</main>
+</body>
+</html>

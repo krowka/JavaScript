@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel = "stylesheet"
+          type = "text/css"
+          href = "sheet.css" />
+    <meta charset="UTF-8">
+    <title>Lab2</title>
+    <style>
+        body {
+            /*text-align: center;*/
+            margin-top: 10px;
+        }
+
+        #vectorInfo, #clickInfo {
+            text-align: center;
+            display: inline-block;
+            width: 49.5%;
+            margin-bottom: 10px;
+            border: 1px solid black;
+        }
+
+        /*.animatable {*/
+            /*position: relative;*/
+            /*top: 0px;*/
+            /*left: 0px;*/
+        /*}*/
+
+    </style>
+</head>
+<body onload="generateVector()">
+<div id = "header">
+    <div id = "vectorInfo">-------------------</div>
+    <div id = "clickInfo">-------------------</div>
+</div>
+<div class = "animatable"  style ="width: 50px; height: 50px; border: 1px solid black; background-color: green;"></div>
+<h1 class = "animatable">Pan Tadeusz</h1>
+<p class = "animatable">Adam Mickiewicz</p>
+<img class = "animatable" src ="plane.jpg" style = "height: 50px; width: 50px">
+
+
+<script src="script.js"></script>
+</body>
+</html>

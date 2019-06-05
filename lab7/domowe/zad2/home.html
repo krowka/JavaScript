@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                var arr = $("textarea").val().split(" ");
+                // console.log(arr);
+                var res = " ";
+                for (var i = 0; i < arr.length; i++) {
+                    $.get("http://localhost:9000/" + arr[i], function (data, status) {
+                        // alert("Data: " + data + "\nStatus: " + status)
+                        // $("textarea").append(data);
+                        console.log(parseInt(data));
+                        // $("textarea").val(data);
+                        res  += parseInt(data);
+                    });
+
+                }
+                 // console.log(res);
+                // var s = "";
+                // for(var i = 0; i < res.length; i++){
+                //     s += " " + res[i];
+                // }
+                // console.log(s);
+                $("textarea").val(res).toString;
+            });
+        });
+    </script>
+</head>
+<body>
+
+
+<label>
+<textarea rows="4" cols="50">1 2 3 </textarea>
+</label>
+
+<button>Send an HTTP GET request to a page and get the result back</button>
+
+</body>
+</html>
