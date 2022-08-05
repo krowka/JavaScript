@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "dependencies": {
     "express": "latest",
-    "mongoose": "^5.5.9"
+    "mongoose": "^5.7.5"
   }
 }
