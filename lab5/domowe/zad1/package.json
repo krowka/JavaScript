@@ -16,7 +16,7 @@
     "yarn": "^1.15.2"
   },
   "devDependencies": {
-    "mocha": "^6.1.4",
+    "mocha": "^10.2.0",
     "supertest": "^4.0.2"
   }
 }
